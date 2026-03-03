@@ -1,1 +1,38 @@
+<!-- My style for my page-->
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    margin: 20px;
+}
 
+<!-- This styles my name at the top-->
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+<!--This styles the section titles-->
+h2 {
+    color: #1f3c88;
+    border-bottom: 2px solid #1f3c88; <!--Implementation of a border-->
+    padding-bottom: 5px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+a {
+    color: #2563eb;        <!--Makes links blue-->
+}
+
+}
+
+<!--This is the reusable class that I will use for multiple sections-->
+.section-box {
+    padding: 15px;
+    border: 1px solid black;     <!--Adds a border-->
+    margin-bottom: 20px;        <!--Adds space between sections-->
+    background-color: white;
+}
