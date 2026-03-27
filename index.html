@@ -2,227 +2,168 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Semantic HTML Refactor Exercise</title>
-
+  <title>JavaScript Sandbox</title>
   <style>
-    /* Basic layout + visuals so structure is obvious */
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.4;
-      margin: 0;
-      background: #f5f6f8;
-      color: #222;
+      font-family: Georgia, serif;
+      max-width: 600px;
+      margin: 60px auto;
+      background: #f9f9f9;
+      color: #1a1a1a;
+      padding: 0 24px;
     }
 
-    .container {
-      max-width: 980px;
-      margin: 24px auto;
-      padding: 0 16px;
+    h1 { font-size: 2rem; margin-bottom: 4px; }
+    p  { font-size: 1.1rem; line-height: 1.7; }
+
+    #result-box {
+      margin-top: 32px;
+      padding: 24px;
+      border: 3px solid #1a1a1a;
+      border-radius: 8px;
+      background: white;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      min-height: 80px;
     }
 
-    /* Starter file uses divs; students will swap to semantic tags.
-       This CSS is written to still work after refactor. */
-    #header, header {
-      background: #1f2937;
-      color: #fff;
-      padding: 18px 20px;
-      border-radius: 10px;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .tagline {
-      font-size: 14px;
-      opacity: 0.9;
-    }
-
-    #nav, nav {
-      margin-top: 12px;
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 12px 14px;
-    }
-
-    /* Inline vs block trap:
-       Links are inline by default; spacing/padding may feel "off" until students improve structure. */
-    #nav a, nav a {
-      text-decoration: none;
-      color: #2563eb;
-      margin-right: 10px;
-    }
-
-    #nav a:hover, nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* Two-column layout */
-    .layout {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 14px;
-      margin-top: 14px;
-      align-items: start;
-    }
-
-    #content, main {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 14px;
-    }
-
-    #sidebar, aside {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 14px;
-    }
-
-    .post, article {
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 12px;
-      background: #fbfbfc;
-    }
-
-    /* Heading styling works whether students convert div titles to h1/h2 */
-    h1 {
-      font-size: 22px;
-      margin: 0 0 6px 0;
-    }
-    h2 {
-      font-size: 18px;
-      margin: 0 0 6px 0;
-    }
-
-    .meta {
-      font-size: 12px;
-      color: #6b7280;
-      margin-bottom: 8px;
-    }
-
-    .box {
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 12px;
-      background: #fbfbfc;
-    }
-
-    #footer, footer {
-      margin-top: 14px;
-      padding: 12px 16px;
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      color: #6b7280;
-      font-size: 12px;
-    }
-
-    /* Make it readable on narrow screens */
-    @media (max-width: 800px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
+    #grade-message {
+      margin-top: 16px;
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: bold;
+      display: none;
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
 
-    <header id="header">
-      <!-- I used <header> for the top text of the page because this is what the main page will be about-->
-      <img src="adrian.jpg" alt="adrianPhoto">
-      <h1> <div class="logo">Adrian Colombo</div>
-    </h1> <div class="tagline">A page about me</div>
-    <!-- I put this link here as it suits best due to the fact it is inside the <head> and it is also where the link is near in my code-->
-        <link rel="stylesheet" href="style.css">
-        <img src="attirePhoto.jpg" alt="Adrian Colombo professional photo" width="200">
-      <style>
-        <!--For Step 5, I am changing the color of h2 to show I understand how CSS can override previous styles-->
-        h2 {
-          color: darkblue;
-        }
-      </style>
-    </div>
-    <div class="section-box">
+  <h1>JS Sandbox</h1>
+  <p>Open this file in Sublime Text. Find the TODOs in the script below and make your changes. Save the file, switch to the browser, and hit refresh to see what happens.</p>
 
-    <!-- Students should convert this into <nav> containing a real list (<ul><li><a>) -->
-    <nav id="nav">
-      <!-- I used <nav> for this section of the page because this part of the page will be where users will use hyperlinks to get to another page-->
-      <a href="#">About Me</a>
-      <a href="#">Skills</a>
-      <a href="#">Projects or Interests</a>
-      <a href="#">Contact</a>
-    </div>
-    <div class="section-box">
+  <div id="result-box">Loading...</div>
+  <div id="grade-message"></div>
 
-    <div class="layout">
-      <main id="content">
-        <!-- I used <main> for this part of the page because this is where most of the data will be read by users-->
-        <!-- Students should convert each .post into an <article> with an <h2> -->
-        <div class="post">
-          <!-- Students should convert this into headings (h1/h2) and fix hierarchy -->
-          <h2> <div class="title">About Me</div> </h2>
-          <div class="meta">Posted Mar 1</div>
-          
-          <div class="text">
-            I am a have a deep passion for finance and information systems. My passion began when I was a kid, wanting to learn how to manage my money at a young age.
-            I was always told to live within my means and that taught me many lessons growing up. One thing that helped me manage my money was to utilize technology.
-            That's where my passion for information systems comes from, as well as playing lots of video games growing up. I've learned these two go hand in hand more
-            often than not, and wanted to understand both sides of the playing field together.
-          </div>
-        </div>
-        <div class="section-box">
+  <script>
 
-        <article class="post">
-          <!-- I used <article> for post because this is where I will add articles-->
-          <h2> <div class="title">Skills</div> </h2>
-          <div class="meta">Posted Mar 1</div>
-          <div class="text">
-            Some skills that I have developed throughout my experience is the use of management systems. Some skills that help me get ahead of the curve is handling 
-            large amounts of cash on a daily basis, assessing when and when not to move money to accounts that generate passive income, currently pursuing my 
-            CompTIA A+ certification, aiming to acquire an internship in the finance world this summer of 2026, years of experience in the workforce, and a deep 
-            passion for math.
-          </div>
-        </div>
-        <div class="section-box">
+    // ============================================================
+    //  QUICK ORIENTATION
+    //
+    //  JavaScript runs after the HTML loads.
+    //  It can read and rewrite anything on the page.
+    //
+    //  A variable is a named box that holds a value:
+    //    let age = 18;
+    //    let city = "New York";
+    //
+    //  An if/else lets the code make a decision:
+    //    if (age >= 18) {
+    //      // do this
+    //    } else {
+    //      // do that
+    //    }
+    //
+    //  That's all you need for today. Let's go.
+    // ============================================================
 
-      </div>
 
-      <!-- Students should convert this into <aside> -->
-      <aside id="sidebar">
-        <!-- I used <aside> for the sidebar because on the side is where I will use the scroll bar-->
+    // ============================================================
+    //  TODO 1 — Make it yours
+    //
+    //  Three variables are declared below.
+    //  Right now they hold placeholder values.
+    //  Replace them with your own.
+    //
+    //  After each change: save → switch to browser → refresh.
+    //  Something on the page should update.
+    //
+    //  For the color: it accepts any valid CSS color name.
+    //  If you're not sure what counts, just try something —
+    //  worst case nothing changes.
+    // ============================================================
 
-        <div class="box">
-          <h2> <div class="title">Projects or Interests</div> </h2>
-          <!-- Students should convert these into a real list -->
-          I enjoy playing and watching soccer on my off time as well as playing games relating to soccer. I also enjoy strategy games.<br>
-          I enjoy investing and looking at daily stocks as well as reading the news. To help me build my money exponentially, I have high interest in investing.
-        </div>
-        <div class="section-box">
+    let studentName   = "Adrian";   // TODO 1a
+    let year          = 3;             // TODO 1b — use 1, 2, 3, or 4
+    let favoriteColor = "black";   // TODO 1c
 
-        <div class="box">
-          <h2> <div class="title">Contact</div> </h2>
-          Email: amcolombo20@gmail.com<br>
-          Phone: (516) 288-1188
-        </div>
+    // -- you don't need to touch anything below this line for TODO 1 --
 
-      </div>
-    </div>
+    let yearLabel;
+    if      (year === 1) { yearLabel = "Freshman";  }
+    else if (year === 2) { yearLabel = "Sophomore"; }
+    else if (year === 3) { yearLabel = "Junior";    }
+    else if (year === 4) { yearLabel = "Senior";    }
+    else                 { yearLabel = "Unknown year — try a number between 1 and 4"; }
 
-    <footer id="footer">
-      © Hofstra University
-    </div>
+    let box = document.getElementById("result-box");
+    box.textContent             = "Hi, I'm " + studentName + ". I'm a " + yearLabel + ".";
+    box.style.borderColor       = favoriteColor;
+    box.style.backgroundColor   = favoriteColor;
+    box.style.color             = "white";
 
-  </div>
+
+    // ============================================================
+    //  TODO 2 — Fix the grade checker
+    //
+    //  The code below is supposed to look at testScore and
+    //  display the right letter grade. The logic should be:
+    //
+    //    90 or above  →  "A — great work"
+    //    80 or above  →  "B — solid effort"
+    //    70 or above  →  "C — room to grow"
+    //    below 70     →  "needs improvement"
+    //
+    //  Try it as-is first. Refresh the browser and see what
+    //  the page actually shows. Does it match the rules above?
+    //
+    //  Hint: JavaScript reads if/else top to bottom and stops
+    //  at the first condition that is true.
+    // ============================================================
+
+    let testScore = 55;
+
+    let gradeMessage;
+
+    if (testScore >= 90) {
+      gradeMessage = "A — great work";
+    } else if (testScore >= 80) {
+      gradeMessage = "B — solid effort";
+    } else if (testScore >= 70) {
+      gradeMessage = "C — room to grow";
+    } else {
+      gradeMessage = "needs improvement";
+    }
+
+    let messageBox = document.getElementById("grade-message");
+    messageBox.textContent      = "Score: " + testScore + " → " + gradeMessage;
+    messageBox.style.display    = "block";
+    messageBox.style.background = testScore >= 80 ? "#d4edda" : "#fff3cd";
+    messageBox.style.color      = testScore >= 80 ? "#155724" : "#856404";
+
+
+    // ============================================================
+    //  TODO 3 — Stretch
+    //
+    //  Add your own condition below this comment.
+    //  It should check testScore and store something
+    //  in a variable called extraNote.
+    //
+    //  Then add this line to show it on the page:
+    //    messageBox.textContent += "  |  " + extraNote;
+    //
+    //  What the condition checks and what it says is up to you.
+    // ============================================================
+
+    if (testScore <= 60) {
+      extraNote = "F - come to extra help";
+    }
+
+    messageBox.textContent += "  |  " + extraNote;
+
+ 
+
+
+  </script>
 </body>
 </html>
