@@ -2,131 +2,131 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Semantic HTML Refactor Exercise</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me - Adrian Colombo</title>
 
   <style>
-    /* Basic layout + visuals so structure is obvious */
+    :root {
+      --bg: #3b82f6; /* deeper blue background */
+      --card: #e0f2fe; /* light blue boxes */
+      --text: #1f2937;
+      --muted: #475569;
+      --accent: #1d4ed8;
+      --shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.4;
       margin: 0;
-      background: #f5f6f8;
-      color: #222;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
     .container {
-      max-width: 980px;
-      margin: 24px auto;
-      padding: 0 16px;
+      max-width: 900px; /* slightly smaller overall */
+      margin: 0 auto;
+      padding: 20px;
     }
 
-    /* Starter file uses divs; students will swap to semantic tags.
-       This CSS is written to still work after refactor. */
-    #header, header {
-      background: #1f2937;
-      color: #fff;
-      padding: 18px 20px;
-      border-radius: 10px;
+    header {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
     }
 
-    .logo {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 4px;
+    nav {
+      display: flex;
+      gap: 20px;
     }
 
-    .tagline {
-      font-size: 14px;
-      opacity: 0.9;
-    }
-
-    #nav, nav {
-      margin-top: 12px;
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 12px 14px;
-    }
-
-    /* Inline vs block trap:
-       Links are inline by default; spacing/padding may feel "off" until students improve structure. */
-    #nav a, nav a {
+    /* clickable but no navigation */
+    nav a {
       text-decoration: none;
-      color: #2563eb;
-      margin-right: 10px;
+      color: var(--accent);
+      font-weight: 600;
+      cursor: pointer;
     }
 
-    #nav a:hover, nav a:hover {
+    nav a:hover {
       text-decoration: underline;
     }
 
-    /* Two-column layout */
     .layout {
       display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 14px;
-      margin-top: 14px;
-      align-items: start;
+      grid-template-columns: 250px 1fr;
+      gap: 18px;
     }
 
-    #content, main {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 14px;
+    .sidebar {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+      text-align: center;
     }
 
-    #sidebar, aside {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 14px;
-    }
-
-    .post, article {
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 12px;
+    .sidebar img {
+      width: 140px; /* slightly smaller */
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
       margin-bottom: 12px;
-      background: #fbfbfc;
     }
 
-    /* Heading styling works whether students convert div titles to h1/h2 */
-    h1 {
-      font-size: 22px;
-      margin: 0 0 6px 0;
+    main {
+      display: grid;
+      gap: 14px;
     }
-    h2 {
-      font-size: 18px;
-      margin: 0 0 6px 0;
+
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 18px; /* smaller padding */
+    }
+
+    .card h2 {
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 1.3rem;
     }
 
     .meta {
-      font-size: 12px;
-      color: #6b7280;
-      margin-bottom: 8px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 10px;
     }
 
-    .box {
-      border: 1px solid #e5e7eb;
+    .card p {
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .section-img {
+      width: 100%;
+      max-width: 200px; /* smaller image */
+      display: block;
+      margin: 0 auto 12px;
       border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 12px;
-      background: #fbfbfc;
     }
 
-    #footer, footer {
-      margin-top: 14px;
-      padding: 12px 16px;
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      color: #6b7280;
-      font-size: 12px;
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      color: #e5e7eb;
+      font-size: 0.9rem;
     }
 
-    /* Make it readable on narrow screens */
     @media (max-width: 800px) {
       .layout {
         grid-template-columns: 1fr;
@@ -138,90 +138,64 @@
 <body>
   <div class="container">
 
-    <header id="header">
-      <!-- I used <header> for the top text of the page because this is what the main page will be about-->
-      <img src="adrian.jpg" alt="adrianPhoto">
-      <h1> <div class="logo">Adrian Colombo</div>
-    </h1> <div class="tagline">A page about me</div>
-    <!-- I put this link here as it suits best due to the fact it is inside the <head> and it is also where the link is near in my code-->
-        <link rel="stylesheet" href="style.css">
-        <img src="attirePhoto.jpg" alt="Adrian Colombo professional photo" width="200">
-      <style>
-        <!--For Step 5, I am changing the color of h2 to show I understand how CSS can override previous styles-->
-        h2 {
-          color: darkblue;
-        }
-      </style>
-    </div>
-    <div class="section-box">
-
-    <!-- Students should convert this into <nav> containing a real list (<ul><li><a>) -->
-    <nav id="nav">
-      <!-- I used <nav> for this section of the page because this part of the page will be where users will use hyperlinks to get to another page-->
-      <a href="#">About Me</a>
-      <a href="#">Skills</a>
-      <a href="#">Projects or Interests</a>
-      <a href="#">Contact</a>
-    </div>
-    <div class="section-box">
+    <header>
+      <nav>
+        <!-- clickable but does nothing -->
+        <a href="#">About Me</a>
+        <a href="#">Skills</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
 
     <div class="layout">
-      <main id="content">
-        <!-- I used <main> for this part of the page because this is where most of the data will be read by users-->
-        <!-- Students should convert each .post into an <article> with an <h2> -->
-        <div class="post">
-          <!-- Students should convert this into headings (h1/h2) and fix hierarchy -->
-          <h2> <div class="title">About Me</div> </h2>
+
+      <aside class="sidebar">
+        <img src="adrian.jpg" alt="Adrian Colombo photo">
+        <h1>Adrian Colombo</h1>
+        <p>A page about me</p>
+      </aside>
+
+      <main>
+
+        <section class="card">
+          <h2>About Me</h2>
           <div class="meta">Posted Mar 1</div>
-          
-          <div class="text">
-            I am a have a deep passion for finance and information systems. My passion began when I was a kid, wanting to learn how to manage my money at a young age.
-            I was always told to live within my means and that taught me many lessons growing up. One thing that helped me manage my money was to utilize technology.
-            That's where my passion for information systems comes from, as well as playing lots of video games growing up. I've learned these two go hand in hand more
-            often than not, and wanted to understand both sides of the playing field together.
-          </div>
-        </div>
-        <div class="section-box">
 
-        <article class="post">
-          <!-- I used <article> for post because this is where I will add articles-->
-          <h2> <div class="title">Skills</div> </h2>
+          <img src="attirePhoto.jpg" alt="Professional photo" class="section-img">
+
+          <p>
+            I have a deep passion for finance and information systems. My interest started when I was young and wanted to learn how to manage money early.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>Skills</h2>
           <div class="meta">Posted Mar 1</div>
-          <div class="text">
-            Some skills that I have developed throughout my experience is the use of management systems. Some skills that help me get ahead of the curve is handling 
-            large amounts of cash on a daily basis, assessing when and when not to move money to accounts that generate passive income, currently pursuing my 
-            CompTIA A+ certification, aiming to acquire an internship in the finance world this summer of 2026, years of experience in the workforce, and a deep 
-            passion for math.
-          </div>
-        </div>
-        <div class="section-box">
+          <p>
+            Experience with management systems, handling money, and pursuing CompTIA A+ certification.
+          </p>
+        </section>
 
-      </div>
+        <section class="card">
+          <h2>Projects or Interests</h2>
+          <p>
+            Soccer, strategy games, investing, and financial growth.
+          </p>
+        </section>
 
-      <!-- Students should convert this into <aside> -->
-      <aside id="sidebar">
-        <!-- I used <aside> for the sidebar because on the side is where I will use the scroll bar-->
+        <section class="card">
+          <h2>Contact</h2>
+          <p>Email: amcolombo20@gmail.com</p>
+          <p>Phone: (516) 288-1188</p>
+        </section>
 
-        <div class="box">
-          <h2> <div class="title">Projects or Interests</div> </h2>
-          <!-- Students should convert these into a real list -->
-          I enjoy playing and watching soccer on my off time as well as playing games relating to soccer. I also enjoy strategy games.<br>
-          I enjoy investing and looking at daily stocks as well as reading the news. To help me build my money exponentially, I have high interest in investing.
-        </div>
-        <div class="section-box">
-
-        <div class="box">
-          <h2> <div class="title">Contact</div> </h2>
-          Email: amcolombo20@gmail.com<br>
-          Phone: (516) 288-1188
-        </div>
-
-      </div>
+      </main>
     </div>
 
-    <footer id="footer">
+    <footer>
       © Hofstra University
-    </div>
+    </footer>
 
   </div>
 </body>
