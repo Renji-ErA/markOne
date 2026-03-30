@@ -7,8 +7,8 @@
 
   <style>
     :root {
-      --bg: #1e3a8a; /* deeper blue background */
-      --card: #e0f2fe; /* light blue boxes */
+      --bg: #1e3a8a;
+      --card: #e0f2fe;
       --text: #1f2937;
       --muted: #475569;
       --accent: #1d4ed8;
@@ -28,7 +28,7 @@
     }
 
     .container {
-      max-width: 900px; /* slightly smaller overall */
+      max-width: 900px;
       margin: 0 auto;
       padding: 20px;
     }
@@ -46,9 +46,10 @@
     nav {
       display: flex;
       gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    /* clickable but no navigation yet*/
     nav a {
       text-decoration: none;
       color: var(--accent);
@@ -60,26 +61,34 @@
       text-decoration: underline;
     }
 
-    .layout {
-      display: grid;
-      grid-template-columns: 250px 1fr;
-      gap: 18px;
-    }
-
-    .sidebar {
+    .profile {
       background: var(--card);
       border-radius: 14px;
       box-shadow: var(--shadow);
       padding: 18px;
       text-align: center;
+      margin-bottom: 18px;
     }
 
-    .sidebar img {
-      width: 140px; /* slightly smaller */
-      height: 140px;
+    .profile img {
+      width: 150px;
+      height: 150px;
       object-fit: cover;
       border-radius: 50%;
-      margin-bottom: 12px;
+      display: block;
+      margin: 0 auto 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: var(--text);
+    }
+
+    .profile p {
+      margin: 6px 0 0;
+      color: var(--muted);
     }
 
     main {
@@ -91,7 +100,7 @@
       background: var(--card);
       border-radius: 14px;
       box-shadow: var(--shadow);
-      padding: 18px; /* smaller padding */
+      padding: 18px;
     }
 
     .card h2 {
@@ -114,7 +123,7 @@
 
     .section-img {
       width: 100%;
-      max-width: 200px; /* smaller image */
+      max-width: 200px;
       display: block;
       margin: 0 auto 12px;
       border-radius: 10px;
@@ -126,12 +135,6 @@
       color: #e5e7eb;
       font-size: 0.9rem;
     }
-
-    @media (max-width: 800px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
 
@@ -140,7 +143,6 @@
 
     <header>
       <nav>
-        <!-- clickable but does nothing -->
         <a href="#">About Me</a>
         <a href="#">Skills</a>
         <a href="#">Projects</a>
@@ -148,58 +150,53 @@
       </nav>
     </header>
 
-    <div class="layout">
-
-      <aside class="sidebar">
-        <img src="adrian.jpg" alt="Adrian Colombo photo">
-        <h1>Adrian Colombo</h1>
-        <p>A page about me</p>
-      </aside>
-
-      <main>
-
-        <section class="card">
-          <h2>About Me</h2>
-          <div class="meta">Posted Mar 1</div>
-
-          <img src="attirePhoto.jpg" alt="Professional photo" class="section-img">
-
-          <p>
-            I have a deep passion for finance and information systems. My passion began when I was a kid, wanting to learn how to manage my money at a young age.
-            I was always told to live within my means and that taught me many lessons growing up. One thing that helped me manage my money was to utilize technology.
-            That's where my passion for information systems comes from, as well as playing lots of video games growing up. I've learned these two go hand in hand more
-          </p>
-        </section>
-
-        <section class="card">
-          <h2>Skills</h2>
-          <div class="meta">Posted Mar 1</div>
-          <p>
-            Some skills that I have developed throughout my experience is the use of management systems. Some skills that help me get ahead of the curve is handling 
-            large amounts of cash on a daily basis, assessing when and when not to move money to accounts that generate passive income, currently pursuing my 
-            CompTIA A+ certification, aiming to acquire an internship in the finance world this summer of 2026, years of experience in the workforce, and a deep 
-            passion for math.
-          </p>
-        </section>
-
-        <section class="card">
-          <h2>Projects and Interests</h2>
-          <div class="meta">Posted Mar 1</div>
-          <p>
-            I enjoy playing and watching soccer on my off time as well as playing games relating to soccer. I also enjoy strategy games.<br>
-            I enjoy investing and looking at daily stocks as well as reading the news. To help me build my money exponentially, I have high interest in investing.
-          </p>
-        </section>
-
-        <section class="card">
-          <h2>Contact</h2>
-          <div class="meta">Posted Mar 1</div>
-          <p>Email: amcolombo20@gmail.com</p>
-          <p>Phone: (516) 288-1188</p>
-        </section>
-
-      </main>
+    <div class="profile">
+      <img src="adrian.jpg" alt="Adrian Colombo photo">
+      <h1>Adrian Colombo</h1>
+      <p>A page about me</p>
     </div>
+
+    <main>
+      <section class="card">
+        <h2>About Me</h2>
+        <div class="meta">Posted Mar 1</div>
+
+        <img src="attirePhoto.jpg" alt="Professional photo" class="section-img">
+
+        <p>
+          I have a deep passion for finance and information systems. My passion began when I was a kid, wanting to learn how to manage my money at a young age.
+          I was always told to live within my means and that taught me many lessons growing up. One thing that helped me manage my money was to utilize technology.
+          That's where my passion for information systems comes from, as well as playing lots of video games growing up. I've learned these two go hand in hand more
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Skills</h2>
+        <div class="meta">Posted Mar 1</div>
+        <p>
+          Some skills that I have developed throughout my experience is the use of management systems. Some skills that help me get ahead of the curve is handling 
+          large amounts of cash on a daily basis, assessing when and when not to move money to accounts that generate passive income, currently pursuing my 
+          CompTIA A+ certification, aiming to acquire an internship in the finance world this summer of 2026, years of experience in the workforce, and a deep 
+          passion for math.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Projects and Interests</h2>
+        <div class="meta">Posted Mar 1</div>
+        <p>
+          I enjoy playing and watching soccer on my off time as well as playing games relating to soccer. I also enjoy strategy games. I enjoy investing and looking
+          at daily stocks as well as reading the news. To help me build my money exponentially, I have high interest in investing.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Contact</h2>
+        <div class="meta">Posted Mar 1</div>
+        <p>Email: amcolombo20@gmail.com</p>
+        <p>Phone: (516) 288-1188</p>
+      </section>
+    </main>
 
     <footer>
       © Hofstra University
