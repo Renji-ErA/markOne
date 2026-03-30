@@ -28,7 +28,7 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
     }
@@ -67,16 +67,17 @@
       box-shadow: var(--shadow);
       padding: 18px;
       text-align: center;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .profile img {
       width: 150px;
       height: 150px;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
       border-radius: 50%;
       display: block;
-      margin: 0 auto 12px;
+      margin: 0 auto 10px;
       box-shadow: var(--shadow);
     }
 
@@ -89,6 +90,27 @@
     .profile p {
       margin: 6px 0 0;
       color: var(--muted);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 150px 1fr 150px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .side-images {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .side-images img {
+      width: 100%;
+      max-width: 130px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
     }
 
     main {
@@ -135,6 +157,17 @@
       color: #e5e7eb;
       font-size: 0.9rem;
     }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .side-images {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 
@@ -151,52 +184,66 @@
     </header>
 
     <div class="profile">
-      <img src="adrian.jpg" alt="Adrian Colombo photo">
+      <img src="images/Adrian Mountain.jpeg" alt="Adrian Colombo photo">
       <h1>Adrian Colombo</h1>
       <p>A page about me</p>
     </div>
 
-    <main>
-      <section class="card">
-        <h2>About Me</h2>
-        <div class="meta">Posted Mar 1</div>
+    <div class="layout">
 
-        <img src="attirePhoto.jpg" alt="Professional photo" class="section-img">
+      <div class="side-images">
+        <img src="images/Louie picture 1.jpeg" alt="Louie 1">
+        <img src="images/Louie picture 2.jpeg" alt="Louie 2">
+      </div>
 
-        <p>
-          I have a deep passion for finance and information systems. My passion began when I was a kid, wanting to learn how to manage my money at a young age.
-          I was always told to live within my means and that taught me many lessons growing up. One thing that helped me manage my money was to utilize technology.
-          That's where my passion for information systems comes from, as well as playing lots of video games growing up. I've learned these two go hand in hand more
-        </p>
-      </section>
+      <main>
+        <section class="card">
+          <h2>About Me</h2>
+          <div class="meta">Posted Mar 1</div>
 
-      <section class="card">
-        <h2>Skills</h2>
-        <div class="meta">Posted Mar 1</div>
-        <p>
-          Some skills that I have developed throughout my experience is the use of management systems. Some skills that help me get ahead of the curve is handling 
-          large amounts of cash on a daily basis, assessing when and when not to move money to accounts that generate passive income, currently pursuing my 
-          CompTIA A+ certification, aiming to acquire an internship in the finance world this summer of 2026, years of experience in the workforce, and a deep 
-          passion for math.
-        </p>
-      </section>
+          <img src="images/Adrian Mountain.jpeg" alt="Professional photo" class="section-img">
 
-      <section class="card">
-        <h2>Projects and Interests</h2>
-        <div class="meta">Posted Mar 1</div>
-        <p>
-          I enjoy playing and watching soccer on my off time as well as playing games relating to soccer. I also enjoy strategy games. I enjoy investing and looking
-          at daily stocks as well as reading the news. To help me build my money exponentially, I have high interest in investing.
-        </p>
-      </section>
+          <p>
+            I have a deep passion for finance and information systems. My passion began when I was a kid, wanting to learn how to manage my money at a young age.
+            I was always told to live within my means and that taught me many lessons growing up. One thing that helped me manage my money was to utilize technology.
+            That's where my passion for information systems comes from, as well as playing lots of video games growing up. I've learned these two go hand in hand more
+          </p>
+        </section>
 
-      <section class="card">
-        <h2>Contact</h2>
-        <div class="meta">Posted Mar 1</div>
-        <p>Email: amcolombo20@gmail.com</p>
-        <p>Phone: (516) 288-1188</p>
-      </section>
-    </main>
+        <section class="card">
+          <h2>Skills</h2>
+          <div class="meta">Posted Mar 1</div>
+          <p>
+            Some skills that I have developed throughout my experience is the use of management systems. Some skills that help me get ahead of the curve is handling 
+            large amounts of cash on a daily basis, assessing when and when not to move money to accounts that generate passive income, currently pursuing my 
+            CompTIA A+ certification, aiming to acquire an internship in the finance world this summer of 2026, years of experience in the workforce, and a deep 
+            passion for math.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>Projects and Interests</h2>
+          <div class="meta">Posted Mar 1</div>
+          <p>
+            I enjoy playing and watching soccer on my off time as well as playing games relating to soccer. I also enjoy strategy games.<br>
+            I enjoy investing and looking at daily stocks as well as reading the news. To help me build my money exponentially, I have high interest in investing.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>Contact</h2>
+          <div class="meta">Posted Mar 1</div>
+          <p>Email: amcolombo20@gmail.com</p>
+          <p>Phone: (516) 288-1188</p>
+        </section>
+      </main>
+
+      <div class="side-images">
+        <img src="images/Julie picture 1.jpeg" alt="Julie 1">
+        <img src="images/Julie picture 2.jpeg" alt="Julie 2">
+      </div>
+
+    </div>
 
     <footer>
       © Hofstra University
