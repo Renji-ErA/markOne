@@ -19,6 +19,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -84,7 +88,6 @@
     .profile h1 {
       margin: 0;
       font-size: 1.8rem;
-      color: var(--text);
     }
 
     .profile p {
@@ -102,16 +105,21 @@
     .side-images {
       display: flex;
       flex-direction: column;
-      gap: 10px;
       align-items: center;
+      gap: 10px;
     }
 
     .side-images img {
       width: 100%;
-      max-width: 150px;
-      height: auto;
+      max-width: 140px;
       border-radius: 10px;
       box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .side-images img:hover {
+      transform: scale(1.05);
     }
 
     main {
@@ -177,10 +185,10 @@
 
     <header>
       <nav>
-        <a href="#">About Me</a>
-        <a href="#">Skills</a>
-        <a href="#">Projects</a>
-        <a href="#">Contact</a>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
@@ -192,15 +200,25 @@
 
     <div class="layout">
 
+      <!-- LEFT SIDE -->
       <div class="side-images">
-        <img src="images/Louie picture 1.jpeg" alt="Louie 1">
-        <img src="images/Louie picture 2.jpeg" alt="Louie 2">
+        <a href="#about">
+          <img src="images/Louie picture 1.jpeg" alt="Louie 1">
+        </a>
+        <a href="#skills">
+          <img src="images/Louie picture 2.jpeg" alt="Louie 2">
+        </a>
       </div>
 
+      <!-- MAIN CONTENT -->
       <main>
-        <section class="card">
+
+        <section class="card" id="about">
           <h2>About Me</h2>
           <div class="meta">Posted Mar 1</div>
+
+          <img src="images/Adrian Mountain.jpeg" alt="Professional photo" class="section-img">
+
           <p>
             I have a deep passion for finance and information systems. My passion began when I was a kid, wanting to learn how to manage my money at a young age.
             I was always told to live within my means and that taught me many lessons growing up. One thing that helped me manage my money was to utilize technology.
@@ -208,7 +226,7 @@
           </p>
         </section>
 
-        <section class="card">
+        <section class="card" id="skills">
           <h2>Skills</h2>
           <div class="meta">Posted Mar 1</div>
           <p>
@@ -219,7 +237,7 @@
           </p>
         </section>
 
-        <section class="card">
+        <section class="card" id="projects">
           <h2>Projects and Interests</h2>
           <div class="meta">Posted Mar 1</div>
           <p>
@@ -228,17 +246,23 @@
           </p>
         </section>
 
-        <section class="card">
+        <section class="card" id="contact">
           <h2>Contact</h2>
           <div class="meta">Posted Mar 1</div>
           <p>Email: amcolombo20@gmail.com</p>
           <p>Phone: (516) 288-1188</p>
         </section>
+
       </main>
 
+      <!-- RIGHT SIDE -->
       <div class="side-images">
-        <img src="images/Julie picture 1.jpeg" alt="Julie 1">
-        <img src="images/Julie picture 2.jpeg" alt="Julie 2">
+        <a href="#projects">
+          <img src="images/Julie picture 1.jpeg" alt="Julie 1">
+        </a>
+        <a href="#contact">
+          <img src="images/Julie picture 2.jpeg" alt="Julie 2">
+        </a>
       </div>
 
     </div>
