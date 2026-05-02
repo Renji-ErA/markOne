@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me - Adrian Colombo</title>
+
+  <style>
+    :root {
+      --bg: #1e3a8a;                                      /*I chose a dark blue background to help reflect Hofstra's colors. I also like the color*/
+      --card: #e0f2fe;                                    /*I chose a lighter blue for some contrast and not just plain white*/
+      --text: #1f2937;
+      --muted: #475569;
+      --accent: #1d4ed8;
+      --shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;                            /*This is so that when a link is clicked, it smoothly directs the user to the corresponding part of the page*/
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /*I think this text is easiest to read for my eyes*/
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;                                   /*1.6 line height is not too big, yet not too small, taking up a good size of the content box*/
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;                                     /*I don't think the margin needed any changing as it aligns well with the first content box at the top*/
+      padding: 20px;
+    }
+
+    header {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 14px;                                       /*The padding seemed to take up a good amount of space from content to border*/
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;                                    /*The boldness felt right at 600*/
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;                          /*This is so that when you hover over a link at the top, it will indicate to the user that it is clickable*/
+    }
+
+    .profile {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .profile img {
+      width: 150px;
+      height: 150px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .profile p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 180px 1fr 180px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .side-images {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .side-images img {
+      width: 100%;                                                          /*This size of the image is best fitted in my opinion*/
+      max-width: 140px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .side-images img:hover {
+      transform: scale(1.05);                                               /*This is so when you hover over an image, it simply makes it slightly bigger, just for some interactivity*/
+    }
+
+    main {
+      display: grid;
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .card h2 {
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+    }
+
+    .meta {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .section-img {
+      width: 100%;
+      max-width: 200px;
+      display: block;
+      margin: 0 auto 12px;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      color: #e5e7eb;                                                          /*This color seemed to be reasonable to have for the footer*/
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .side-images {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <nav>
+        <a href="index.html">About Me</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <div class="profile">
+      <img src="images/Adrian Mountain.jpeg" alt="Adrian Colombo photo">
+      <h1>Adrian Colombo</h1>
+      <p>A page about me</p>
+    </div>
+
+    <div class="layout">
+
+      <!-- LEFT SIDE -->
+      <div class="side-images">
+          <img src="images/Louie picture 1.jpeg" alt="Louie 1">
+
+          <img src="images/Louie picture 2.jpeg" alt="Louie 2">
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <main>
+        <section class="card">
+          <h2>Projects and Interests</h2>
+          <div class="meta">Posted Mar 1</div>
+          <p>
+            I enjoy playing and watching soccer on my off time as well as playing games relating to soccer. I also enjoy strategy games. 
+            I enjoy investing and looking at daily stocks as well as reading the news. To help me build my money exponentially, I have 
+            high interest in investing.
+          </p>
+        </section>
+      </main>
+
+      <!-- RIGHT SIDE -->
+      <div class="side-images">
+          <img src="images/Julie picture 1.jpeg" alt="Julie 1">
+          
+          <img src="images/Julie picture 2.jpeg" alt="Julie 2">
+      </div>
+
+    </div>
+
+    <footer>
+      © Hofstra University
+    </footer>
+
+  </div>
+</body>
+</html>
