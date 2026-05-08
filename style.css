@@ -1,66 +1,48 @@
-<!-- My style for my page-->
 body {
-    font-family: Arial, sans-serif;
-    background-color: #c1ccd7;
-    margin: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #c1ccd7;
+  margin: 20px;
+  text-align: center;
 }
 
-<!-- This styles my name at the top-->
 h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
-<!--This styles the section titles-->
 h2 {
-    color: #1f3c88;
-    border-bottom: 2px solid #1f3c88; <!--Implementation of a border-->
-    padding-bottom: 5px;
+  color: #1f3c88;
+  border-bottom: 2px solid #1f3c88;
+  padding-bottom: 5px;
 }
 
 p {
-    line-height: 1.6;
-    margin-bottom: 15px;
+  line-height: 1.6;
+  margin-bottom: 15px;
 }
 
 a {
-    color: #2563eb;        <!--Makes links blue-->
+  color: #2563eb;
 }
 
-}
-
-<!--This is the reusable class that I will use for multiple sections-->
 .section-box {
-    padding: 15px;
-    border: 1px solid black;     <!--Adds a border-->
-    margin-bottom: 20px;        <!--Adds space between sections-->
-    background-color: white;
-}
-
-body{
-    display: table;
-    width: 100%;
-    height: 100vh;
-    text-align: center;
-}
-
-.container{
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
+  padding: 15px;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  background-color: white;
 }
 
 .lightbox {
-  position: fixed;              /* makes it float over the page */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.8); /* dark overlay */
-  display: none;                /* hidden by default */
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
   align-items: center;
   justify-content: center;
-  z-index: 9999;                /* ensures it stays on top */
+  z-index: 9999;
 }
 
 .lightbox img {
@@ -70,5 +52,5 @@ body{
 }
 
 .lightbox:target {
-  display: flex;                /* shows it when clicked */
+  display: flex;
 }
