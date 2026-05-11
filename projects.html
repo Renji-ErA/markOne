@@ -3,291 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me - Adrian Colombo</title>
-
+  <title>Interests Filter - Adrian Colombo</title>
   <style>
-    :root {
-      --bg: #1e3a8a;                                      /*I chose a dark blue background to help reflect Hofstra's colors. I also like the color*/
-      --card: #e0f2fe;                                    /*I chose a lighter blue for some contrast and not just plain white*/
-      --text: #1f2937;
-      --muted: #475569;
-      --accent: #1d4ed8;
-      --shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-    }
-
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-}
-
-.lightbox:target {
-  display: flex;
-}
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;                            /*This is so that when a link is clicked, it smoothly directs the user to the corresponding part of the page*/
-    }
-
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /*I think this text is easiest to read for my eyes*/
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;                                   /*1.6 line height is not too big, yet not too small, taking up a good size of the content box*/
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;                                     /*I don't think the margin needed any changing as it aligns well with the first content box at the top*/
       padding: 20px;
+      background: #1e3a8a;
+      color: #1f2937;
     }
 
-    header {
-      background: var(--card);
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #e0f2fe;
       border-radius: 14px;
-      box-shadow: var(--shadow);
-      padding: 14px;                                       /*The padding seemed to take up a good amount of space from content to border*/
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: center;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     }
 
-    nav {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
+    h1 {
+      text-align: center;
+      margin-top: 0;
     }
 
-    nav a {
-      text-decoration: none;
-      color: var(--accent);
-      font-weight: 600;                                    /*The boldness felt right at 600*/
-      cursor: pointer;
-    }
-
-    nav a:hover {
-      text-decoration: underline;                          /*This is so that when you hover over a link at the top, it will indicate to the user that it is clickable*/
-    }
-
-    .profile {
-      background: var(--card);
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-      padding: 18px;
+    .controls {
       text-align: center;
       margin-bottom: 20px;
     }
 
-    .profile img {
-      width: 150px;
-      height: 150px;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 50%;
-      display: block;
-      margin: 0 auto 10px;
-      box-shadow: var(--shadow);
+    select {
+      padding: 10px;
+      font-size: 1rem;
     }
 
-    .profile h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-
-    .profile p {
-      margin: 6px 0 0;
-      color: var(--muted);
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 180px 1fr 180px;
-      gap: 20px;
-      align-items: start;
-    }
-
-    .side-images {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .side-images img {
-      width: 100%;                                                          /*This size of the image is best fitted in my opinion*/
-      max-width: 350px;
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    .side-images img:hover {
-      transform: scale(1.05);                                               /*This is so when you hover over an image, it simply makes it slightly bigger, just for some interactivity*/
-    }
-
-    main {
-      display: grid;
-      gap: 14px;
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-      padding: 18px;
-      border: 3px solid black;
-    }
-
-    .card h2 {
+    #count {
       text-align: center;
+      margin: 10px 0 20px;
+      font-weight: bold;
+    }
+
+    #container {
+      display: grid;
+      gap: 15px;
+    }
+
+    .item-card {
+      background: white;
+      border: 2px solid black;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .item-card h3 {
+      margin-top: 0;
       margin-bottom: 8px;
-      font-size: 1.3rem;
+      color: #1d4ed8;
     }
 
-    .meta {
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      text-align: center;
-      font-size: 0.95rem;
-    }
-
-    .section-img {
-      width: 100%;
-      max-width: 200px;
-      display: block;
-      margin: 0 auto 12px;
-      border-radius: 10px;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 20px;
-      color: #e5e7eb;                                                          /*This color seemed to be reasonable to have for the footer*/
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 900px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-
-      .side-images {
-        flex-direction: row;
-        justify-content: center;
-      }
+    .item-card p {
+      margin: 6px 0;
+      line-height: 1.5;
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
+  <div class="page">
+    <h1>Interests</h1>
 
-    <header>
-      <nav>
-        <a href="index.html">About Me</a>
-        <a href="skills.html">Skills</a>
-        <a href="projects.html">Interests Filter</a>
-        <a href="soccer.html">Soccer</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </header>
-
-    <div class="layout">
-
-      <!-- LEFT SIDE -->
-      <div class="side-images">
-        <a href="#img1">
-          <img src="images/Louie picture 1.jpeg" alt="Louie 1" title="Louie image 1">
-        </a>
-
-        <a href="#img2">
-          <img src="images/Louie picture 2.jpeg" alt="Louie 2" title="Louie image 2">
-        </a>
-      </div>
-
-      
-      <!-- MAIN CONTENT -->
-      <main>
-        <section class="card">
-          <h2>Interests</h2>
-          <div class="meta">Posted Mar 1</div>
-          <p>
-            I enjoy playing and watching soccer on my off time as well as playing games relating to soccer. I also enjoy strategy games. 
-            I enjoy investing and looking at daily stocks as well as reading the news. To help me build my money exponentially, I have 
-            high interest in investing.
-          </p>
-          <p>
-            I also have a couple cats, Louie and Julie. They are ragdoll cats, one of the most playful and friendliest cats there is. Louie is 3, and Julie is 1.
-          </p>
-        </section>
-      </main>
-
-      <!-- RIGHT SIDE -->
-      <div class="side-images">
-        <a href="#img3">
-          <img src="images/Julie picture 1.jpeg" alt="Julie 1" title="Julie image 1">
-        </a>
-  
-        <a href="#img4">
-          <img src="images/Julie picture 2.jpeg" alt="Julie 2" title="Julie image 2">
-        </a>
-      </div>
+    <div class="controls">
+      <label for="categorySelect">Filter by category:</label>
+      <select id="categorySelect" onchange="filterItems(this.value)">
+        <option value="">All</option>
+        <option value="Finance">Finance</option>
+        <option value="Technology">Technology</option>
+        <option value="Sports">Sports</option>
+      </select>
     </div>
 
-        <div id="img1" class="lightbox">
-  <a href="#">
-    <img src="images/Louie picture 1.jpeg" alt="Louie 1">
-  </a>
-</div>
-
-      
-<div id="img2" class="lightbox">
-  <a href="#">
-    <img src="images/Louie picture 2.jpeg" alt="Louie 2">
-  </a>
-</div>
-
-<div id="img3" class="lightbox">
-  <a href="#">
-    <img src="images/Julie picture 1.jpeg" alt="Julie 1">
-  </a>
-</div>
-
-<div id="img4" class="lightbox">
-  <a href="#">
-    <img src="images/Julie picture 2.jpeg" alt="Julie 2">
-  </a>
-</div>
-
-    <footer>
-      © 2026 Adrian Colombo
-    </footer>
-
+    <p id="count"></p>
+    <div id="container"></div>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
