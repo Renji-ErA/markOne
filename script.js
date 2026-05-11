@@ -69,10 +69,10 @@ function filterItems(value) {
       renderItems(financeItems);
       break;
 
-    case "Technology":
+    case "Information Technology":
       const techItems = [];
       for (let i = 0; i < items.length; i++) {
-        if (items[i].category === "Technology") {
+        if (items[i].category === "Information Technology") {
           techItems.push(items[i]);
         }
       }
