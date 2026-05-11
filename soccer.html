@@ -1,1 +1,292 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me - Adrian Colombo</title>
 
+  <style>
+    :root {
+      --bg: #1e3a8a;                                      /*I chose a dark blue background to help reflect Hofstra's colors. I also like the color*/
+      --card: #e0f2fe;                                    /*I chose a lighter blue for some contrast and not just plain white*/
+      --text: #1f2937;
+      --muted: #475569;
+      --accent: #1d4ed8;
+      --shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+    
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;                            /*This is so that when a link is clicked, it smoothly directs the user to the corresponding part of the page*/
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /*I think this text is easiest to read for my eyes*/
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;                                   /*1.6 line height is not too big, yet not too small, taking up a good size of the content box*/
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;                                     /*I don't think the margin needed any changing as it aligns well with the first content box at the top*/
+      padding: 20px;
+    }
+
+    header {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 14px;                                       /*The padding seemed to take up a good amount of space from content to border*/
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;                                    /*The boldness felt right at 600*/
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;                          /*This is so that when you hover over a link at the top, it will indicate to the user that it is clickable*/
+    }
+
+    .profile {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .profile img {
+      width: 150px;
+      height: 150px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .profile p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 180px 1fr 180px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .side-images {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .side-images img {
+      width: 100%;                                                          /*This size of the image is best fitted in my opinion*/
+      max-width: 350px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .side-images img:hover {
+      transform: scale(1.05);                                               /*This is so when you hover over an image, it simply makes it slightly bigger, just for some interactivity*/
+    }
+
+    main {
+      display: grid;
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+      border: 3px solid black;
+    }
+
+    .card h2 {
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+    }
+
+    .meta {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .section-img {
+      width: 100%;
+      max-width: 200px;
+      display: block;
+      margin: 0 auto 12px;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      color: #e5e7eb;                                                          /*This color seemed to be reasonable to have for the footer*/
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .side-images {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <nav>
+        <a href="index.html">About Me</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+        <a href="soccer.html">Soccer</a>
+      </nav>
+    </header>
+
+    <div class="layout">
+
+    <!-- LEFT SIDE -->
+      <div class="side-images">
+        <a href="#img1">
+          <img src="images/Stew Leonard's logo.jpeg" alt="Stew Leonard's 1" title="Stew Leonard's logo">
+        </a>
+
+        <a href="#img2">
+          <img src="images/TD Logo.jpeg" alt="TD Bank logo 1" title="TD Bank logo">
+        </a>
+      </div>
+      
+      <!-- MAIN CONTENT -->
+      <main>
+        <section class="card">
+          <h2>Soccer</h2>
+          <div class="meta">Posted Mar 1</div>
+          <p>
+            I've touched upon soccer being one of my interests, so I want to expand on that part of my life because I feel it has taught me many valuable lessons. I was once on a team when
+            I was younger, playing for the East Meadow Soccer Club. I played in that club for a few years before I decided to quit. During my time, I was always in the starting 11, playing 
+            at the left wing. My coach called me a speed demon for my pace, and that made me feel like I was important.
+          </p>
+          <p>
+            I remember feeling so anxious before every game, wanting to not just do my best but to also be the best, to stand out. So much so, I was so nervous to make any mistake, anything 
+            that could lead to a turnover in favor of the opposing team. That being said, I barely dribbled, barely went to score, and barely tried to do anything, leaving my team one man
+            short.
+          </p>
+          <p>
+            Throughout the years I spent on that team, starting in every single match, I only scored one goal. Not because I didn't try, but because I didn't try to mess up to learn. 
+          </p>
+          <p>
+            Looking back, I wish I would've taken those risks because I love the sport. It taught me that you need to fail countless times before you get it right. And then there will still
+            be failures to learn from. It taught me risks need to be taken to see how far you can go. To be humble, have discipline, but not to be shy. Because at the end of the day it
+            really is just a game.
+          </p>
+        </section>
+      </main>
+
+    <!-- RIGHT SIDE -->
+      <div class="side-images">
+        <a href="#img3">
+          <img src="images/CompTIA A+ Certification.jpg" alt="CompTIA A+ Certification image" title="CompTIA A+ Certification image">
+        </a>
+      </div>
+    </div>
+
+    <div id="img1" class="lightbox">
+      <a href="#">
+        <img src="images/Stew Leonard's logo.jpeg" alt="Stew Leonard's 1">
+      </a>
+    </div>
+
+    <div id="img2" class="lightbox">
+      <a href="#">
+        <img src="images/TD Logo.jpeg" alt="TD Logo 1">
+      </a>
+    </div>
+
+    <div id="img3" class="lightbox">
+      <a href="#">
+        <img src="images/CompTIA A+ Certification.jpg" alt="CompTIA A+ Certification image">
+      </a>
+    </div>
+
+    <footer>
+      © 2026 Adrian Colombo
+    </footer>
+
+  </div>
+</body>
+</html>
