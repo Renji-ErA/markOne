@@ -102,4 +102,11 @@ function trackNav(label) {
   });
 }
 
+function trackRoomClick() {
+  gtag('event', 'room_click', {
+    event_category: 'Engagement',
+    event_label: 'Soccer Page Room Image'
+  });
+}
+
 filterItems("");
