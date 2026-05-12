@@ -13,35 +13,39 @@
       color: #1f2937;
     }
 
-    header {
-  background: #e0f2fe;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  padding: 14px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-nav {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-nav a {
-  text-decoration: none;
-  color: #1d4ed8;
-  font-weight: 600;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-    .page {
+    .site {
       max-width: 1000px;
       margin: 0 auto;
+    }
+
+    header {
+      background: #e0f2fe;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      padding: 14px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1d4ed8;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
       background: #e0f2fe;
       border-radius: 14px;
       padding: 20px;
@@ -95,10 +99,7 @@ nav a:hover {
   </style>
 </head>
 <body>
-  <div class="container">
-  </div>
-
-  <div class="page">
+  <div class="site">
     <header>
       <nav>
         <a href="index.html">About Me</a>
@@ -108,23 +109,23 @@ nav a:hover {
         <a href="contact.html">Contact</a>
       </nav>
     </header>
-    
-    <h1>
-      Interests
-    </h1>
 
-    <div class="controls">
-      <label for="categorySelect">Filter by category:</label>
-      <select id="categorySelect" onchange="filterItems(this.value)">
-        <option value="">All</option>
-        <option value="Finance">Finance</option>
-        <option value="Information Technology">Technology</option>
-        <option value="Sports">Sports</option>
-      </select>
+    <div class="page">
+      <h1>Interests</h1>
+
+      <div class="controls">
+        <label for="categorySelect">Filter by category:</label>
+        <select id="categorySelect" onchange="filterItems(this.value)">
+          <option value="">All</option>
+          <option value="Finance">Finance</option>
+          <option value="Technology">Technology</option>
+          <option value="Sports">Sports</option>
+        </select>
+      </div>
+
+      <p id="count"></p>
+      <div id="container"></div>
     </div>
-
-    <p id="count"></p>
-    <div id="container"></div>
   </div>
 
   <script src="script.js"></script>
