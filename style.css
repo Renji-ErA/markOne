@@ -54,3 +54,10 @@ a {
 .lightbox:target {
   display: flex;
 }
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #e5e7eb;
+  font-size: 0.9rem;
+}
