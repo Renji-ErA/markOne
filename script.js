@@ -95,4 +95,11 @@ function filterItems(value) {
   }
 }
 
+function trackNav(label) {
+  gtag('event', 'nav_click', {
+    event_category: 'Navigation',
+    event_label: label
+  });
+}
+
 filterItems("");
