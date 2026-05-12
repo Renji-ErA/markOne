@@ -11,12 +11,12 @@ const items = [
   },
   {
     name: "Computer Repair",
-    category: "Information Technology",
+    category: "Technology",
     description: "I am interested in learning how computers work and how to build and fix them."
   },
   {
     name: "CompTIA A+ Study",
-    category: "Information Technology",
+    category: "Technology",
     description: "I am currently studying for my CompTIA A+ certification."
   },
   {
@@ -69,10 +69,10 @@ function filterItems(value) {
       renderItems(financeItems);
       break;
 
-    case "Information Technology":
+    case "Technology":
       const techItems = [];
       for (let i = 0; i < items.length; i++) {
-        if (items[i].category === "Information Technology") {
+        if (items[i].category === "Technology") {
           techItems.push(items[i]);
         }
       }
